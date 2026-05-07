@@ -30,7 +30,7 @@ body {
   min-height: 100vh;
 }
 
-/* Background */
+
 .bg-mesh {
   position: fixed; inset: 0; z-index: 0;
   background:
@@ -40,7 +40,7 @@ body {
   pointer-events: none;
 }
 
-/* Navbar */
+
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -85,7 +85,7 @@ body {
   color: var(--gold); border-color: rgba(201,168,76,0.4); background: var(--gold-dim);
 }
 
-/* About Hero */
+
 .about-hero {
   position: relative; z-index: 1;
   min-height: 70vh;
@@ -144,7 +144,7 @@ body {
 
 .about-sub.visible { opacity: 1; transform: none; }
 
-/* Info Section */
+
 .info-section {
   position: relative; z-index: 1;
   padding: 60px 48px 80px;
@@ -191,7 +191,7 @@ body {
   font-weight: 300;
 }
 
-/* Stats Banner */
+
 .stats-banner {
   position: relative; z-index: 1;
   background: var(--surface);
@@ -229,7 +229,7 @@ body {
   text-transform: uppercase; letter-spacing: 0.1em;
 }
 
-/* Founders Section */
+
 .founders-section {
   position: relative; z-index: 1;
   padding: 80px 48px 60px;
@@ -256,7 +256,7 @@ body {
   margin: 0 auto; line-height: 1.7; font-weight: 300;
 }
 
-/* Team Photo */
+
 .team-photo-wrapper {
   margin-bottom: 60px;
   opacity: 0; transform: translateY(30px);
@@ -301,7 +301,7 @@ body {
   letter-spacing: 0.08em; text-transform: uppercase;
 }
 
-/* Founders Grid */
+
 .founders-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -376,7 +376,7 @@ body {
   background: rgba(79,142,247,0.08);
 }
 
-/* Footer */
+
 .main-footer {
   position: relative; z-index: 1;
   background: var(--bg-2);
