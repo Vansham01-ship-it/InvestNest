@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InvestNest — Venture Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="venture.css" />
+</head>
+<body>
+
+  <div class="bg-mesh"></div>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+        <span class="logo-mark">IN</span>
+        <span class="logo-text">InvestNest</span>
+      </a>
+    </div>
+    <div class="nav-actions" style="display:flex;gap:10px;">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact Us</a>
+      <a href="investor.html" class="nav-link">Investor Portal</a>
+    </div>
+  </nav>
+
+  <!-- Company Banner -->
+  <div class="company-banner">
+    <div class="banner-content">
+      <div class="banner-left">
+        <div class="company-logo">NX</div>
+        <div class="company-info">
+          <div class="company-label">Venture Dashboard</div>
+          <h1 class="company-name">NexPay Technologies</h1>
+          <p class="company-meta">Founded 2021 &nbsp;·&nbsp; Bengaluru &nbsp;·&nbsp; FinTech / B2B Payments &nbsp;·&nbsp; 140 Employees</p>
+        </div>
+      </div>
+      <div class="banner-right">
+        <div class="stage-badge">Series B — Round Open</div>
+        <div class="round-progress-wrap">
+          <div class="rp-label">
+            <span>₹34 Cr raised</span>
+            <span>₹50 Cr target</span>
+          </div>
+          <div class="rp-track"><div class="rp-fill" id="main-progress"></div></div>
+          <div class="rp-pct">68% funded</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-row">
+    <div class="kpi-card" data-delay="0">
+      <div class="kpi-icon green">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-label">Total Raised</div>
+        <div class="kpi-value">₹34 Cr</div>
+        <div class="kpi-delta positive">↑ ₹8 Cr this month</div>
+      </div>
+    </div>
+    <div class="kpi-card" data-delay="80">
+      <div class="kpi-icon blue">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-label">Funding Target</div>
+        <div class="kpi-value">₹50 Cr</div>
+        <div class="kpi-delta neutral">₹16 Cr remaining</div>
+      </div>
+    </div>
+    <div class="kpi-card" data-delay="160">
+      <div class="kpi-icon gold">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 21l19-9L3 3v7l12 2-12 2v7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-label">Valuation</div>
+        <div class="kpi-value">₹420 Cr</div>
+        <div class="kpi-delta positive">↑ 18% since Series A</div>
+      </div>
+    </div>
+    <div class="kpi-card" data-delay="240">
+      <div class="kpi-icon purple">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-label">Active Investors</div>
+        <div class="kpi-value">9</div>
+        <div class="kpi-delta positive">↑ 3 new this quarter</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content: Chart + Investors -->
+  <div class="main-grid">
+
+    <!-- Bar Chart -->
+    <div class="chart-card panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Monthly Investment Flow</div>
+          <div class="panel-sub">Amount received per month (₹ Crore)</div>
+        </div>
+        <div class="chart-total">₹34.3 Cr total</div>
+      </div>
+      <div class="bar-chart-wrap" id="bar-chart">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="chart-summary">
+        <div class="cs-item"><strong>₹34.3 Cr</strong><small>Total Raised</small></div>
+        <div class="cs-item"><strong>₹4.3 Cr</strong><small>Monthly Avg</small></div>
+        <div class="cs-item"><strong>8 Months</strong><small>Round Duration</small></div>
+        <div class="cs-item"><strong>68%</strong><small>Target Hit</small></div>
+      </div>
+    </div>
+
+    <!-- Investors List -->
+    <div class="investors-card panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Current Investors</div>
+          <div class="panel-sub">All confirmed commitments</div>
+        </div>
+        <div class="inv-count-badge">7 investors</div>
+      </div>
+      <div class="inv-list">
+        <div class="inv-item" data-delay="0">
+          <div class="inv-av" style="--c:#4f8ef7">SC</div>
+          <div class="inv-details">
+            <div class="inv-name">Sequoia Capital India</div>
+            <div class="inv-type">Institutional VC</div>
+          </div>
+          <div class="inv-right">
+            <div class="inv-amount">₹12 Cr</div>
+            <div class="inv-date">Jan 2025</div>
+          </div>
+        </div>
+        <div class="inv-item" data-delay="60">
+          <div class="inv-av" style="--c:#f59e0b">PK</div>
+          <div class="inv-details">
+            <div class="inv-name">Peak XV Partners</div>
+            <div class="inv-type">Institutional VC</div>
+          </div>
+          <div class="inv-right">
+            <div class="inv-amount">₹8 Cr</div>
+            <div class="inv-date">Nov 2024</div>
+          </div>
+        </div>
+        <div class="inv-item" data-delay="120">
+          <div class="inv-av" style="--c:#a78bfa">RJ</div>
+          <div class="inv-details">
+            <div class="inv-name">Rajesh Joshi</div>
+            <div class="inv-type">Angel Investor</div>
+          </div>
+          <div class="inv-right">
+            <div class="inv-amount">₹4 Cr</div>
+            <div class="inv-date">Oct 2024</div>
+          </div>
+        </div>
+        <div class="inv-item" data-delay="180">
+          <div class="inv-av" style="--c:#2dd4a0">BF</div>
+          <div class="inv-details">
+            <div class="inv-name">Blume Ventures</div>
+            <div class="inv-type">Seed VC</div>
+          </div>
+          <div class="inv-right">
+            <div class="inv-amount">₹3.5 Cr</div>
+            <div class="inv-date">Sep 2024</div>
+          </div>
+        </div>
+        <div class="inv-item" data-delay="240">
+          <div class="inv-av" style="--c:#f43f5e">SM</div>
+          <div class="inv-details">
+            <div class="inv-name">Sanya Malhotra</div>
+            <div class="inv-type">Angel Investor</div>
+          </div>
+          <div class="inv-right">
+            <div class="inv-amount">₹2.8 Cr</div>
+            <div class="inv-date">Dec 2024</div>
+          </div>
+        </div>
+        <div class="inv-item" data-delay="300">
+          <div class="inv-av" style="--c:#14b8a6">AP</div>
+          <div class="inv-details">
+            <div class="inv-name">Ankur Patel</div>
+            <div class="inv-type">Family Office</div>
+          </div>
+          <div class="inv-right">
+            <div class="inv-amount">₹2 Cr</div>
+            <div class="inv-date">Feb 2025</div>
+          </div>
+        </div>
+        <div class="inv-item" data-delay="360">
+          <div class="inv-av" style="--c:#f97316">3X</div>
+          <div class="inv-details">
+            <div class="inv-name">3one4 Capital</div>
+            <div class="inv-type">Institutional VC</div>
+          </div>
+          <div class="inv-right">
+            <div class="inv-amount">₹1 Cr</div>
+            <div class="inv-date">Mar 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom: Milestones + Cap Table -->
+  <div class="bottom-grid">
+
+    <div class="milestones-card panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Company Milestones</div>
+          <div class="panel-sub">Key achievements and upcoming targets</div>
+        </div>
+        <div class="ms-legend">
+          <span class="ms-leg done">Done</span>
+          <span class="ms-leg ongoing">In Progress</span>
+          <span class="ms-leg pending">Upcoming</span>
+        </div>
+      </div>
+      <div class="milestone-list">
+        <div class="ms-item done" data-delay="0">
+          <div class="ms-line"></div>
+          <div class="ms-dot-wrap"><div class="ms-dot"></div></div>
+          <div class="ms-content">
+            <div class="ms-title">Crossed ₹80 Cr ARR mark</div>
+            <div class="ms-date">February 2025</div>
+          </div>
+        </div>
+        <div class="ms-item done" data-delay="80">
+          <div class="ms-line"></div>
+          <div class="ms-dot-wrap"><div class="ms-dot"></div></div>
+          <div class="ms-content">
+            <div class="ms-title">Onboarded 10,000 MSME clients</div>
+            <div class="ms-date">December 2024</div>
+          </div>
+        </div>
+        <div class="ms-item done" data-delay="160">
+          <div class="ms-line"></div>
+          <div class="ms-dot-wrap"><div class="ms-dot"></div></div>
+          <div class="ms-content">
+            <div class="ms-title">RBI Payment Aggregator licence approved</div>
+            <div class="ms-date">October 2024</div>
+          </div>
+        </div>
+        <div class="ms-item ongoing" data-delay="240">
+          <div class="ms-line"></div>
+          <div class="ms-dot-wrap"><div class="ms-dot"></div></div>
+          <div class="ms-content">
+            <div class="ms-title">Southeast Asia expansion — Singapore go-live</div>
+            <div class="ms-date">In Progress · Target Q2 2025</div>
+          </div>
+        </div>
+        <div class="ms-item pending" data-delay="320">
+          <div class="ms-line"></div>
+          <div class="ms-dot-wrap"><div class="ms-dot"></div></div>
+          <div class="ms-content">
+            <div class="ms-title">Series B round closure at ₹50 Cr</div>
+            <div class="ms-date">Upcoming · May 2025</div>
+          </div>
+        </div>
+        <div class="ms-item pending last" data-delay="400">
+          <div class="ms-line"></div>
+          <div class="ms-dot-wrap"><div class="ms-dot"></div></div>
+          <div class="ms-content">
+            <div class="ms-title">Pre-IPO filing and DRHP submission</div>
+            <div class="ms-date">Planned · Q1 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="captable-card panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Cap Table Summary</div>
+          <div class="panel-sub">Ownership after Series B</div>
+        </div>
+      </div>
+      <!-- Donut chart -->
+      <div class="donut-wrap">
+        <canvas id="donut-canvas" width="180" height="180"></canvas>
+        <div class="donut-center">
+          <div class="donut-total">100%</div>
+          <div class="donut-label">Equity</div>
+        </div>
+      </div>
+      <table class="cap-table">
+        <thead>
+          <tr><th>Stakeholder</th><th>Type</th><th>Equity</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Rohan Khanna</td><td><span class="tag tag-green">Founder</span></td><td>38.4%</td></tr>
+          <tr><td>Ankita Singh</td><td><span class="tag tag-green">Founder</span></td><td>22.0%</td></tr>
+          <tr><td>Sequoia Capital India</td><td><span class="tag tag-blue">Inst. VC</span></td><td>14.2%</td></tr>
+          <tr><td>Peak XV Partners</td><td><span class="tag tag-blue">Inst. VC</span></td><td>9.5%</td></tr>
+          <tr><td>ESOP Pool</td><td><span class="tag tag-gold">Employees</span></td><td>8.0%</td></tr>
+          <tr><td>Angel Investors</td><td><span class="tag tag-red">Angels</span></td><td>7.9%</td></tr>
+        </tbody>
+      </table>
+      <div class="round-boxes">
+        <div class="round-box blue">
+          <div class="rb-label">Series A</div>
+          <div class="rb-value">₹18 Cr</div>
+          <div class="rb-year">2023</div>
+        </div>
+        <div class="round-box green">
+          <div class="rb-label">Series B</div>
+          <div class="rb-value">₹34 Cr</div>
+          <div class="rb-year">2025 · Open</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-mark">IN</div>
+        <div class="footer-brand-text">
+          <span class="footer-logo-text">InvestNest</span>
+          <span class="footer-tagline">Where Capital Meets Vision</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Platform</div>
+          <a href="investor.html" class="footer-link">Investor Portal</a>
+          <a href="venture.html" class="footer-link">Venture Dashboard</a>
+          <a href="about.html" class="footer-link">About Us</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a href="about.html" class="footer-link">About Us</a>
+          <a href="about.html" class="footer-link">How It Works</a>
+          <a href="contact.html" class="footer-link">Careers</a>
+          <a href="contact.html" class="footer-link">Press</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Connect</div>
+          <a href="https://www.instagram.com/_.vansham.bansal._?igsh=MTk0OHlqb3VlaXloeA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="14.5" cy="5.5" r="1" fill="currentColor"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/vansh-bhateja-417178399?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M13.5 6.5a4 4 0 0 1 4 4v5h-3v-5a1.5 1.5 0 0 0-3 0v5h-3v-5a4 4 0 0 1 4-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="7.5" width="3" height="8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="3.5" cy="4.5" r="1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:vaibhavsaini1514@gmail.com" class="footer-link">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M2 5h16c.6 0 1 .4 1 1v10c0 .6-.4 1-1 1H2c-.6 0-1-.4-1-1V6c0-.6.4-1 1-1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 6l-8 6L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Gmail
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 InvestNest. All rights reserved.</span>
+      <span class="footer-badge">SEBI Registered</span>
+      <span class="footer-made">Made with conviction in India 🇮🇳</span>
+    </div>
+  </footer>
+
+  <script src="venture.js"></script>
+</body>
+</html>
