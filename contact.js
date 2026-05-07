@@ -1,11 +1,9 @@
-// ─── Navbar Scroll ─────────────────────────────────────────────────
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 30);
 });
 
 
-// ─── Intersection Observer — Reveal Animations ─────────────────────
 const revealEls = document.querySelectorAll(
   '.contact-eyebrow, .contact-title .line, .contact-sub, .contact-form-panel, .info-card'
 );
@@ -22,7 +20,6 @@ const observer = new IntersectionObserver(entries => {
 revealEls.forEach(el => observer.observe(el));
 
 
-// ─── Form Submit Handler ───────────────────────────────────────────
 const form = document.getElementById('contact-form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();

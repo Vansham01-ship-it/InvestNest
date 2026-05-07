@@ -1,11 +1,9 @@
-// ─── Navbar Scroll ─────────────────────────────────────────────────
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 30);
 });
 
 
-// ─── Intersection Observer — Reveal Animations ─────────────────────
 const revealEls = document.querySelectorAll(
   '.about-eyebrow, .about-title .line, .about-sub, .info-card, .sb-item, .team-photo-wrapper, .founder-card'
 );
@@ -22,7 +20,6 @@ const observer = new IntersectionObserver(entries => {
 revealEls.forEach(el => observer.observe(el));
 
 
-// ─── Smooth scroll for anchor links ────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();

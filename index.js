@@ -1,4 +1,3 @@
-// ─── Particle Canvas ───────────────────────────────────────────────
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
@@ -40,7 +39,6 @@ function drawParticles() {
     if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
   });
 
-  // draw connections
   particles.forEach((a, i) => {
     particles.slice(i + 1).forEach(b => {
       const dx = a.x - b.x;
@@ -66,14 +64,12 @@ drawParticles();
 window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
 
 
-// ─── Navbar Scroll ─────────────────────────────────────────────────
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 30);
 });
 
 
-// ─── Intersection Observer — Reveal Animations ─────────────────────
 const revealEls = document.querySelectorAll(
   '.hero-eyebrow, .hero-title .line, .hero-sub, .hero-cta, .role-card, .stat-item'
 );
@@ -89,7 +85,6 @@ const observer = new IntersectionObserver(entries => {
 revealEls.forEach(el => observer.observe(el));
 
 
-// ─── Animated Counters ─────────────────────────────────────────────
 function animateCounter(el, target, prefix = '', suffix = '', divide = 1) {
   const duration = 1800;
   const start = performance.now();
@@ -125,7 +120,6 @@ const statObserver = new IntersectionObserver(entries => {
 
       animateCounter(counter, target, prefix, suffix, divide);
 
-      // stat bar widths are symbolic (max 100%)
       const pct = Math.min((target / 2400) * 100, 100);
       setTimeout(() => {
         fill.style.width = (pct > 20 ? pct : 20) + '%';
@@ -139,7 +133,6 @@ const statObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.stat-item').forEach(el => statObserver.observe(el));
 
 
-// ─── Smooth hover tilt on role cards ──────────────────────────────
 document.querySelectorAll('.role-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();

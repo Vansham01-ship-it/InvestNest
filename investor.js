@@ -1,4 +1,3 @@
-// ─── Card Reveal Animations ────────────────────────────────────────
 const cards = document.querySelectorAll('.company-card');
 
 const cardObserver = new IntersectionObserver(entries => {
@@ -6,7 +5,6 @@ const cardObserver = new IntersectionObserver(entries => {
     if (entry.isIntersecting) {
       setTimeout(() => {
         entry.target.classList.add('visible');
-        // Animate progress fill
         const fill = entry.target.querySelector('.progress-fill');
         if (fill) {
           const w = getComputedStyle(fill).getPropertyValue('--w');
@@ -21,7 +19,6 @@ const cardObserver = new IntersectionObserver(entries => {
 cards.forEach(c => cardObserver.observe(c));
 
 
-// ─── Filter + Search ───────────────
 const pills = document.querySelectorAll('.pill');
 const searchInput = document.getElementById('search-input');
 const noResults = document.getElementById('no-results');
@@ -62,7 +59,6 @@ pills.forEach(pill => {
 searchInput.addEventListener('input', applyFilters);
 
 
-// ─── Modal ─────────────────────────────────────────────────────────
 const overlay = document.getElementById('modal-overlay');
 const modalClose = document.getElementById('modal-close');
 const steps = [
@@ -78,14 +74,12 @@ let selectedCompany = {};
 
 function openModal(data) {
   selectedCompany = data;
-  // Fill sidebar info
   document.getElementById('ms-company').textContent = data.company;
   document.getElementById('ms-sector').textContent = data.sector;
   document.getElementById('ms-valuation').textContent = data.valuation;
   document.getElementById('ms-target').textContent = data.target;
   document.getElementById('ms-raised').textContent = data.raised;
 
-  // Reset to step 1
   goToStep(0);
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -102,7 +96,6 @@ function goToStep(n) {
   currentStep = n;
 }
 
-// Open modal on Invest Now
 document.querySelectorAll('.invest-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     openModal({
@@ -118,7 +111,6 @@ document.querySelectorAll('.invest-btn').forEach(btn => {
 modalClose.addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 
-// Preset buttons
 document.querySelectorAll('.preset').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.preset').forEach(b => b.classList.remove('selected'));
@@ -146,7 +138,6 @@ function updateAmountHint(val) {
   }
 }
 
-// Step 1 → 2
 document.getElementById('step1-next').addEventListener('click', () => {
   const val = parseFloat(amountInput.value);
   if (!val || val <= 0) {
@@ -159,15 +150,12 @@ document.getElementById('step1-next').addEventListener('click', () => {
   goToStep(1);
 });
 
-// Step 2 → 3
 document.getElementById('step2-next').addEventListener('click', () => {
-  // Update payment display
   const label = selectedAmount >= 100
     ? `₹${(selectedAmount / 100).toFixed(2)} Crore`
     : `₹${selectedAmount} Lakhs`;
   document.getElementById('pad-value').textContent = label;
 
-  // NEFT reference
   const ref = 'IN-2025-' + Math.random().toString(36).substr(2, 5).toUpperCase();
   document.getElementById('neft-ref').textContent = ref;
   document.getElementById('success-ref').textContent = 'Reference: ' + ref;
@@ -175,11 +163,9 @@ document.getElementById('step2-next').addEventListener('click', () => {
   goToStep(2);
 });
 
-// Back buttons
 document.getElementById('step2-back').addEventListener('click', () => goToStep(0));
 document.getElementById('step3-back').addEventListener('click', () => goToStep(1));
 
-// Payment Tabs
 document.querySelectorAll('.ptab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
@@ -189,7 +175,6 @@ document.querySelectorAll('.ptab').forEach(tab => {
   });
 });
 
-// Card number formatting
 const cardNum = document.getElementById('card-num');
 if (cardNum) {
   cardNum.addEventListener('input', e => {
@@ -198,7 +183,6 @@ if (cardNum) {
   });
 }
 
-// Pay buttons → success
 function triggerSuccess() {
   document.getElementById('success-msg').textContent =
     `Your ₹${selectedAmount} Lakhs commitment to ${selectedCompany.company} has been registered. Confirmation will be sent to your email within 24 hours.`;
@@ -229,7 +213,6 @@ function simulateLoading(btnId, cb) {
 
 document.getElementById('success-close').addEventListener('click', closeModal);
 
-// Keyboard close
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
 });

@@ -1,4 +1,3 @@
-// ─── Intersection Observer — Panels ────────────────────────────────
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -11,7 +10,6 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.panel, .kpi-card').forEach(el => observer.observe(el));
 
 
-// ─── Main Progress Bar ─────────────────────────────────────────────
 const mainProgress = document.getElementById('main-progress');
 const progressObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -24,13 +22,11 @@ const progressObserver = new IntersectionObserver(entries => {
 progressObserver.observe(mainProgress);
 
 
-// ─── KPI Cards stagger ─────────────────────────────────────────────
 document.querySelectorAll('.kpi-card').forEach((card, i) => {
   card.style.transitionDelay = (i * 80) + 'ms';
 });
 
 
-// ─── Bar Chart ─────────────────────────────────────────────────────
 const chartData = [
   { month: 'Aug', val: 2.1 },
   { month: 'Sep', val: 2.8 },
@@ -57,7 +53,6 @@ chartData.forEach((d, i) => {
   `;
   wrap.appendChild(col);
 
-  // Animate in with stagger
   const bar = col.querySelector('.bar-inner');
   setTimeout(() => {
     bar.style.height = pct + '%';
@@ -65,7 +60,6 @@ chartData.forEach((d, i) => {
 });
 
 
-// ─── Investor items stagger ────────────────────────────────────────
 const invItems = document.querySelectorAll('.inv-item');
 const invObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -80,7 +74,6 @@ const invObserver = new IntersectionObserver(entries => {
 invItems.forEach(el => invObserver.observe(el));
 
 
-// ─── Milestone items stagger ───────────────────────────────────────
 const msItems = document.querySelectorAll('.ms-item');
 const msObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -95,7 +88,6 @@ const msObserver = new IntersectionObserver(entries => {
 msItems.forEach(el => msObserver.observe(el));
 
 
-// ─── Donut Chart (Canvas) ──────────────────────────────────────────
 const canvas = document.getElementById('donut-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -125,7 +117,6 @@ function drawDonut(progress) {
     startAngle += sweep;
   });
 
-  // Inner cutout
   ctx.beginPath();
   ctx.arc(cx, cy, inner, 0, Math.PI * 2);
   ctx.fillStyle = '#13131f';
@@ -150,7 +141,6 @@ const donutObserver = new IntersectionObserver(entries => {
 
 donutObserver.observe(canvas);
 
-// Tooltip on hover
 canvas.addEventListener('mousemove', e => {
   const rect = canvas.getBoundingClientRect();
   const mx = e.clientX - rect.left;
