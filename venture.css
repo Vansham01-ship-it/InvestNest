@@ -31,7 +31,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
   pointer-events: none;
 }
 
-/* NAV */
+
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -55,7 +55,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .back-btn svg { width: 16px; height: 16px; }
 .back-btn:hover { color: var(--gold); border-color: rgba(201,168,76,0.3); }
 
-/* BANNER */
+
 .company-banner {
   position: relative; z-index: 1; margin-top: 69px;
   background: var(--surface); border-bottom: 1px solid var(--border);
@@ -85,7 +85,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .rp-fill { height: 100%; background: linear-gradient(90deg, var(--green), #5eead4); border-radius: 6px; width: 0%; transition: width 1.2s cubic-bezier(0.16,1,0.3,1) 0.5s; }
 .rp-pct { font-size: 11px; color: var(--green); margin-top: 4px; text-align: right; }
 
-/* KPI ROW */
+
 .kpi-row {
   position: relative; z-index: 1;
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -118,7 +118,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .kpi-delta.positive { color: var(--green); }
 .kpi-delta.neutral { color: var(--text-3); }
 
-/* MAIN GRID */
+
 .main-grid {
   position: relative; z-index: 1;
   display: grid; grid-template-columns: 1.6fr 1fr;
@@ -143,7 +143,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
   border: 1px solid rgba(79,142,247,0.2); padding: 4px 10px; border-radius: 10px;
 }
 
-/* Bar Chart */
+
 .bar-chart-wrap {
   display: flex; align-items: flex-end; gap: 8px; height: 160px;
   padding-bottom: 0; border-bottom: 1px solid var(--border); margin-bottom: 16px;
@@ -178,7 +178,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .cs-item strong { font-size: 14px; color: var(--blue); display: block; font-weight: 600; }
 .cs-item small { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; }
 
-/* Investors */
+
 .inv-list { display: flex; flex-direction: column; gap: 0; }
 .inv-item {
   display: flex; align-items: center; gap: 12px;
@@ -202,7 +202,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .inv-amount { font-size: 14px; color: var(--blue); font-weight: 600; font-family: 'Syne', sans-serif; }
 .inv-date { font-size: 10px; color: var(--text-3); margin-top: 2px; }
 
-/* BOTTOM GRID */
+
 .bottom-grid {
   position: relative; z-index: 1;
   display: grid; grid-template-columns: 1.3fr 1fr;
@@ -210,7 +210,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
   max-width: 1296px; margin: 0 auto;
 }
 
-/* Milestones */
+
 .ms-legend { display: flex; gap: 8px; flex-wrap: wrap; }
 .ms-leg {
   font-size: 10px; padding: 3px 10px; border-radius: 10px;
@@ -259,7 +259,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .ms-item.done .ms-date { color: var(--green); }
 .ms-item.ongoing .ms-date { color: #f59e0b; }
 
-/* Cap Table */
+
 .donut-wrap {
   position: relative; display: flex; align-items: center; justify-content: center;
   height: 180px; margin-bottom: 20px;
@@ -301,7 +301,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .rb-value { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; color: var(--text-1); }
 .rb-year { font-size: 11px; color: var(--text-3); margin-top: 2px; }
 
-/* FOOTER */
+
 footer { position: relative; z-index: 1; background: var(--bg); border-top: 1px solid var(--border); padding: 24px 48px; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; font-size: 12px; color: var(--text-3); }
 .footer-logo { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; color: var(--text-2); }
@@ -316,7 +316,6 @@ footer { position: relative; z-index: 1; background: var(--bg); border-top: 1px 
 }
 
 
-/* ─── NAVBAR LINKS (shared) ─────────────────────────────────────── */
 .nav-actions { display: flex; gap: 10px; }
 
 .nav-link {
@@ -329,7 +328,6 @@ footer { position: relative; z-index: 1; background: var(--bg); border-top: 1px 
   color: var(--gold); border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.12);
 }
 
-/* ─── FOOTER (Full Layout) ──────────────────────────────────────── */
 .main-footer {
   position: relative; z-index: 1;
   background: var(--bg-2);
