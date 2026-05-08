@@ -1,34 +1,30 @@
-/* ─── Invest Page ─── Simple & Clean ─── */
 
-// ── 1. Load deal data from sessionStorage ──
 const deal = JSON.parse(sessionStorage.getItem('investDeal') || '{}');
 
 if (!deal.company) {
-  // No deal selected → redirect back
+
   window.location.href = 'investor.html';
 }
 
-// Fill deal header
+
 document.getElementById('deal-company').textContent = deal.company;
 document.getElementById('deal-sector').textContent = deal.sector;
 document.getElementById('deal-valuation').textContent = deal.valuation;
 document.getElementById('deal-target').textContent = deal.target;
 document.getElementById('deal-raised').textContent = deal.raised;
 
-// ── 2. State ──
 let currentStep = 1;
 let selectedAmount = 0;
 let referenceCode = '';
 
-// ── 3. Step Navigation ──
 function showStep(n) {
-  // Hide all steps
+
   document.querySelectorAll('.step-section').forEach((s) => s.classList.remove('active'));
-  // Show target step
+
   document.getElementById('step-' + n).classList.add('active');
   currentStep = n;
 
-  // Update progress dots
+ 
   document.querySelectorAll('.sp-dot').forEach((dot, i) => {
     const stepNum = i + 1;
     dot.classList.remove('active', 'done');
@@ -43,11 +39,10 @@ function showStep(n) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ── 4. Step 1: Amount ──
 const amountInput = document.getElementById('amount-input');
 const amountHint = document.getElementById('amount-hint');
 
-// Preset buttons
+
 document.querySelectorAll('.preset').forEach((btn) => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.preset').forEach((b) => b.classList.remove('selected'));
@@ -57,7 +52,7 @@ document.querySelectorAll('.preset').forEach((btn) => {
   });
 });
 
-// Custom input
+
 amountInput.addEventListener('input', () => {
   document.querySelectorAll('.preset').forEach((b) => b.classList.remove('selected'));
   updateHint(amountInput.value);
@@ -72,7 +67,6 @@ function updateHint(val) {
   amountHint.textContent = n >= 100 ? `= ₹${(n / 100).toFixed(2)} Crore` : `= ₹${n} Lakhs`;
 }
 
-// Continue from Step 1
 document.getElementById('btn-step1').addEventListener('click', () => {
   const val = parseFloat(amountInput.value);
   if (!val || val < 5) {
@@ -85,7 +79,6 @@ document.getElementById('btn-step1').addEventListener('click', () => {
   showStep(2);
 });
 
-// ── 5. Step 2: Investor Details ──
 document.getElementById('btn-back2').addEventListener('click', () => showStep(1));
 
 document.getElementById('btn-step2').addEventListener('click', () => {
@@ -97,11 +90,9 @@ document.getElementById('btn-step2').addEventListener('click', () => {
     return;
   }
 
-  // Generate reference code
   referenceCode = 'IN-2025-' + Math.random().toString(36).substr(2, 5).toUpperCase();
   document.getElementById('neft-ref').textContent = referenceCode;
 
-  // Set payment display
   const label = selectedAmount >= 100
     ? `₹${(selectedAmount / 100).toFixed(2)} Crore`
     : `₹${selectedAmount} Lakhs`;
@@ -110,10 +101,8 @@ document.getElementById('btn-step2').addEventListener('click', () => {
   showStep(3);
 });
 
-// ── 6. Step 3: Payment ──
 document.getElementById('btn-back3').addEventListener('click', () => showStep(2));
 
-// Payment tabs
 document.querySelectorAll('.ptab').forEach((tab) => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.ptab').forEach((t) => t.classList.remove('active'));
@@ -123,13 +112,11 @@ document.querySelectorAll('.ptab').forEach((tab) => {
   });
 });
 
-// Card number formatting
 document.getElementById('card-num').addEventListener('input', (e) => {
   let v = e.target.value.replace(/\D/g, '').substring(0, 16);
   e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
 });
 
-// Success handler
 function finish() {
   document.getElementById('success-msg').textContent =
     `Your ₹${selectedAmount} Lakhs commitment to ${deal.company} has been registered. Confirmation will be sent to your email within 24 hours.`;
@@ -137,7 +124,6 @@ function finish() {
   showStep(4);
 }
 
-// Simulate loading on buttons
 function withLoading(btnId, callback) {
   const btn = document.getElementById(btnId);
   const original = btn.textContent;
