@@ -1,6 +1,4 @@
-/* ─── Investor Listing Page ─── */
 
-// 1. Card reveal animation
 const cardObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -14,7 +12,7 @@ const cardObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.company-card').forEach((c) => cardObserver.observe(c));
 
-// 2. Filtering
+
 const pills = document.querySelectorAll('.pill');
 const searchInput = document.getElementById('search-input');
 const cards = document.querySelectorAll('.company-card');
@@ -49,7 +47,7 @@ pills.forEach((pill) =>
 
 searchInput.addEventListener('input', applyFilters);
 
-// 3. Invest Now → save to sessionStorage & go to invest.html
+
 document.querySelectorAll('.invest-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
     const data = {
