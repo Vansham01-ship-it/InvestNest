@@ -141,30 +141,3 @@ const donutObserver = new IntersectionObserver(entries => {
 
 donutObserver.observe(canvas);
 
-canvas.addEventListener('mousemove', e => {
-  const rect = canvas.getBoundingClientRect();
-  const mx = e.clientX - rect.left;
-  const my = e.clientY - rect.top;
-  const dx = mx - cx, dy = my - cy;
-  const dist = Math.sqrt(dx*dx + dy*dy);
-
-  if (dist > inner && dist < r) {
-    let angle = Math.atan2(dy, dx) + Math.PI / 2;
-    if (angle < 0) angle += Math.PI * 2;
-
-    let cumAngle = 0;
-    let hovered = null;
-    for (const s of slices) {
-      const sa = (s.value / total) * Math.PI * 2;
-      if (angle >= cumAngle && angle < cumAngle + sa) {
-        hovered = s;
-        break;
-      }
-      cumAngle += sa;
-    }
-
-    canvas.title = hovered ? `${hovered.label}: ${hovered.value}%` : '';
-  } else {
-    canvas.title = '';
-  }
-});
